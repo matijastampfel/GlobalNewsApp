@@ -1,7 +1,7 @@
 import "./Search.css";
 import React from "react";
 
-const Search = () => {
+const Search = props => {
   return (
     <div>
       <div className="topnav">
@@ -11,6 +11,8 @@ const Search = () => {
               type="text"
               className="form-control input-lg"
               placeholder="Search..."
+              onChange={props.changed}
+              value={props.search}
             />
 
             <span className="input-group-btn">

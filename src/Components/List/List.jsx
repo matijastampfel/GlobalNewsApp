@@ -2,16 +2,17 @@ import "./List.css";
 
 import React from "react";
 import Image from "react-image-resizer";
-const keyIndex = require("react-key-index");
+//const keyIndex = require("react-key-index");
 
 const List = props => {
-  let idx = keyIndex(props.posts, 1);
+  // let idx = keyIndex(props.posts, 1);
 
   return (
     <div>
       <ul className="newsList">
         {props.posts.map((post, idx) => (
-          <div key={idx} className="newsContainer">
+          // key={idx}
+          <div className="newsContainer">
             <li>
               <div className="newsTitle">
                 <h1>{post.title}</h1>

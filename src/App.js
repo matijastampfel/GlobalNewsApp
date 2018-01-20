@@ -22,6 +22,7 @@ class App extends Component {
     super(props);
     this.state = {
       posts: [],
+      search: "",
       apiLink:
         "https://newsapi.org/v2/everything?q=Russia&apiKey=914f1a282559480ba84f1513c9eb320d"
     };
@@ -32,19 +33,47 @@ class App extends Component {
   //
 
   componentDidMount() {
-    axios.get(this.state.apiLink).then(res => {
+    this.getNews(this.state.apiLink);
+  }
+
+  //
+  // ─── HANDLERS ───────────────────────────────────────────────────────────────────
+  //
+
+  inputChangeHandler = event => {
+    let search = event.target.value;
+    let searchUrl =
+      "https://newsapi.org/v2/everything?q=" +
+      search +
+      "&apiKey=914f1a282559480ba84f1513c9eb320d";
+
+    this.getNews(searchUrl);
+  };
+
+  //
+  // ─── FUNCTIONS ──────────────────────────────────────────────────────────────────
+  //
+
+  getNews = search => {
+    axios.get(search).then(res => {
       console.log(res);
       posts = res.data.articles;
-      this.setState({
-        posts
-      });
+      if (posts != undefined) {
+        this.setState({
+          posts
+        });
+      }
     });
-  }
+  };
+
+  //
+  // ─── RENDER ─────────────────────────────────────────────────────────────────────
+  //
 
   render() {
     return (
       <div className="App">
-        <Search />
+        <Search changed={this.inputChangeHandler} />
         <List posts={this.state.posts} />
       </div>
     );
