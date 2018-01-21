@@ -14,16 +14,6 @@ const Search = props => {
               onChange={props.changed}
               value={props.search}
             />
-
-            <span className="input-group-btn">
-              <button
-                className="btn btn-info btn-lg"
-                type="button"
-                //onClick={props.click}
-              >
-                <i className="glyphicon glyphicon-search" />
-              </button>
-            </span>
           </div>
         </div>
       </div>

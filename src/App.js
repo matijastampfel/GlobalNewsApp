@@ -58,7 +58,7 @@ class App extends Component {
     axios.get(search).then(res => {
       console.log(res);
       posts = res.data.articles;
-      if (posts != undefined) {
+      if (posts !== undefined) {
         this.setState({
           posts
         });
