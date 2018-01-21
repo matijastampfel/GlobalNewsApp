@@ -15,11 +15,10 @@ const List = props => {
           <div className="newsContainer">
             <li>
               <div className="newsTitle">
-                <h1>{post.title}</h1>
+                <a href={post.url}>{post.title}</a>
                 <Image src={post.urlToImage} alt="" width={340} height={140} />
                 {post.description}
                 <br />
-                <a href={post.url}>Go to page</a>
               </div>
             </li>
             <br />
