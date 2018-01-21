@@ -17,7 +17,14 @@ const List = props => {
               <div className="newsTitle">
                 <a href={post.url}>{post.title}</a>
                 <Image src={post.urlToImage} alt="" width={340} height={140} />
+                <br />
                 {post.description}
+                <br />
+                <br />
+                <p>
+                  TIME: {post.publishedAt.replace(/T|Z/g, " ")}, SOURCE:{" "}
+                  {post.source.name}
+                </p>
                 <br />
               </div>
             </li>
