@@ -22,7 +22,7 @@ class App extends Component {
     super(props);
     this.state = {
       posts: [],
-      search: "",
+      clicks: 0,
       apiLink:
         "https://newsapi.org/v2/everything?q=Russia&apiKey=914f1a282559480ba84f1513c9eb320d"
     };
@@ -39,6 +39,14 @@ class App extends Component {
   //
   // ─── HANDLERS ───────────────────────────────────────────────────────────────────
   //
+
+  IncrementNumberHandler = () => {
+    this.setState({ clicks: this.state.clicks + 1 });
+  };
+
+  DecreaseNumberHandler = () => {
+    this.setState({ clicks: this.state.clicks - 1 });
+  };
 
   inputChangeHandler = event => {
     let search = event.target.value;
@@ -75,6 +83,10 @@ class App extends Component {
       <div className="App">
         <Search changed={this.inputChangeHandler} />
         <List posts={this.state.posts} />
+
+        <button onClick={this.DecreaseNumberHandler}>Previous</button>
+        {this.state.clicks}
+        <button onClick={this.IncrementNumberHandler}>Next</button>
       </div>
     );
   }
