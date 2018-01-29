@@ -22,9 +22,12 @@ class App extends Component {
     super(props);
     this.state = {
       posts: [],
-      clicks: 0,
+      clicks: 1,
       apiLink:
-        "https://newsapi.org/v2/everything?q=Russia&apiKey=914f1a282559480ba84f1513c9eb320d"
+        "https://newsapi.org/v2/everything?q=Sweden&page=" +
+        this.clicks +
+        "&apiKey=914f1a282559480ba84f1513c9eb320d",
+      search: ""
     };
   }
 
@@ -40,19 +43,44 @@ class App extends Component {
   // ─── HANDLERS ───────────────────────────────────────────────────────────────────
   //
 
-  IncrementNumberHandler = () => {
-    this.setState({ clicks: this.state.clicks + 1 });
+  IncrementNumberHandler = event => {
+    let clicks = this.state.clicks + 1;
+    let search = this.state.search;
+    let searchUrl =
+      "https://newsapi.org/v2/everything?q=" +
+      search +
+      "&page=" +
+      clicks +
+      "&apiKey=914f1a282559480ba84f1513c9eb320d";
+
+    this.getNews(searchUrl);
+    this.setState({ clicks: clicks });
   };
 
   DecreaseNumberHandler = () => {
-    this.setState({ clicks: this.state.clicks - 1 });
+    let clicks = this.state.clicks - 1;
+    let search = this.state.search;
+    let searchUrl =
+      "https://newsapi.org/v2/everything?q=" +
+      search +
+      "&page=" +
+      clicks +
+      "&apiKey=914f1a282559480ba84f1513c9eb320d";
+
+    this.getNews(searchUrl);
+    this.setState({ clicks: clicks });
   };
 
   inputChangeHandler = event => {
     let search = event.target.value;
+
+    this.setState({ search: search });
+    let page = this.state.clicks;
     let searchUrl =
       "https://newsapi.org/v2/everything?q=" +
       search +
+      "&page=" +
+      page +
       "&apiKey=914f1a282559480ba84f1513c9eb320d";
 
     this.getNews(searchUrl);
@@ -82,10 +110,14 @@ class App extends Component {
     return (
       <div className="App">
         <Search changed={this.inputChangeHandler} />
-        <List posts={this.state.posts} />
-
+        <h3 onChange={this.inputChangeHandler}>{this.state.clicks}</h3>
         <button onClick={this.DecreaseNumberHandler}>Previous</button>
-        {this.state.clicks}
+
+        <button onClick={this.IncrementNumberHandler}>Next</button>
+        <List posts={this.state.posts} />
+        <h3 onChange={this.inputChangeHandler}>{this.state.clicks}</h3>
+        <button onClick={this.DecreaseNumberHandler}>Previous</button>
+
         <button onClick={this.IncrementNumberHandler}>Next</button>
       </div>
     );
