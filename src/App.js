@@ -23,10 +23,7 @@ class App extends Component {
     this.state = {
       posts: [],
       clicks: 1,
-      apiLink:
-        "https://newsapi.org/v2/everything?q=Sweden&page=" +
-        this.clicks +
-        "&apiKey=914f1a282559480ba84f1513c9eb320d",
+      apiLink: "",
       search: ""
     };
   }
@@ -34,7 +31,7 @@ class App extends Component {
   //
   // ─── API ────────────────────────────────────────────────────────────────────────
   //
-
+  debugger;
   componentDidMount() {
     this.getNews(this.state.apiLink);
   }
@@ -110,15 +107,43 @@ class App extends Component {
     return (
       <div className="App">
         <Search changed={this.inputChangeHandler} />
-        <h3 onChange={this.inputChangeHandler}>{this.state.clicks}</h3>
-        <button onClick={this.DecreaseNumberHandler}>Previous</button>
+        <p>
+          <a
+            href="#"
+            onClick={this.DecreaseNumberHandler}
+            class="btn btn-primary"
+            role="button"
+            class="glyphicon glyphicon-backward"
+          />{" "}
+          <a href="#">{this.state.clicks}</a>
+          <a
+            href="#"
+            class="btn btn-default"
+            role="button"
+            onClick={this.IncrementNumberHandler}
+            class="glyphicon glyphicon-forward"
+          />
+        </p>
 
-        <button onClick={this.IncrementNumberHandler}>Next</button>
         <List posts={this.state.posts} />
-        <h3 onChange={this.inputChangeHandler}>{this.state.clicks}</h3>
-        <button onClick={this.DecreaseNumberHandler}>Previous</button>
 
-        <button onClick={this.IncrementNumberHandler}>Next</button>
+        <p>
+          <a
+            href="#"
+            onClick={this.DecreaseNumberHandler}
+            class="btn btn-primary"
+            role="button"
+            class="glyphicon glyphicon-backward"
+          />{" "}
+          <a href="#">{this.state.clicks}</a>
+          <a
+            href="#"
+            class="btn btn-default"
+            role="button"
+            onClick={this.IncrementNumberHandler}
+            class="glyphicon glyphicon-forward"
+          />
+        </p>
       </div>
     );
   }
