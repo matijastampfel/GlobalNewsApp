@@ -111,17 +111,17 @@ class App extends Component {
           <a
             href="#"
             onClick={this.DecreaseNumberHandler}
-            class="btn btn-primary"
+            className="btn btn-primary"
             role="button"
-            class="glyphicon glyphicon-backward"
+            className="glyphicon glyphicon-backward"
           />{" "}
           <a href="#">{this.state.clicks}</a>
           <a
             href="#"
-            class="btn btn-default"
+            className="btn btn-default"
             role="button"
             onClick={this.IncrementNumberHandler}
-            class="glyphicon glyphicon-forward"
+            className="glyphicon glyphicon-forward"
           />
         </p>
 
@@ -131,17 +131,17 @@ class App extends Component {
           <a
             href="#"
             onClick={this.DecreaseNumberHandler}
-            class="btn btn-primary"
+            className="btn btn-primary"
             role="button"
-            class="glyphicon glyphicon-backward"
+            className="glyphicon glyphicon-backward"
           />{" "}
           <a href="#">{this.state.clicks}</a>
           <a
             href="#"
-            class="btn btn-default"
+            className="btn btn-default"
             role="button"
             onClick={this.IncrementNumberHandler}
-            class="glyphicon glyphicon-forward"
+            className="glyphicon glyphicon-forward"
           />
         </p>
       </div>
