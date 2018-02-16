@@ -1,24 +1,27 @@
 {
-  "name": "globalnews",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "axios": "^0.17.1",
-    "bootstrap": "^3.3.7",
-    "react": "^16.2.0",
-    "react-bootstrap": "^0.32.0",
-    "react-dom": "^16.2.0",
-    "react-key-index": "^0.1.1",
-    "react-scripts": "1.1.0",
-    "redux": "^3.7.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "react-image-resizer": "^1.2.0"
-  }
+    "name": "globalnews",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "axios": "^0.17.1",
+        "bootstrap": "^3.3.7",
+        "homepage": "https://matijastampfel.github.io/GlobalNewsApp/build/",
+        "react": "^16.2.0",
+        "react-bootstrap": "^0.32.0",
+        "react-dom": "^16.2.0",
+        "react-key-index": "^0.1.1",
+        "react-scripts": "1.1.0",
+        "redux": "^3.7.2"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject",
+        "deploy": "npm run build&&gh-pages -d build"
+    },
+    "devDependencies": {
+        "gh-pages": "^1.1.0",
+        "react-image-resizer": "^1.2.0"
+    }
 }
