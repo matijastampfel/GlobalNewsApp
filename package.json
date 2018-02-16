@@ -1,7 +1,6 @@
 {
     "name": "globalnews",
     "version": "0.1.0",
-    "homepage": "https://matijastampfel.github.io/GlobalNewsApp/build/",
     "private": true,
     "dependencies": {
         "axios": "^0.17.1",
@@ -18,10 +17,12 @@
         "build": "react-scripts build",
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
-        "deploy": "npm run build&&gh-pages -d build"
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "devDependencies": {
         "gh-pages": "^1.1.0",
         "react-image-resizer": "^1.2.0"
-    }
+    },
+    "homepage": "https://matijastampfel.github.io/GlobalNewsApp/build/"
 }
